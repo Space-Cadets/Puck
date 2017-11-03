@@ -9,6 +9,7 @@
 }
 
 .day-class {
+    padding: 2px;
     min-height: 52px;
     color: #2b4460;
     font-weight: 700;

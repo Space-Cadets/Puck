@@ -26,7 +26,7 @@ export default class Day extends React.Component {
         return (
           <div className="day-class" key={c.crn} style={styles}>
             <div className="class-section">{c.department}:{c.class}-{c.section}</div>
-            <div className="class-instructor">Instructor: {c.instructors.join(" ")}</div>
+            <div className="class-instructor">{c.instructors.join(" ")}</div>
           </div>
         );
       });
