@@ -7,10 +7,3 @@ render(
   <App />,
   document.getElementById('root')
 );
-
-//store.addTodo('Get Coffee');
-//store.addTodo('Write simpler code');
-//store.todos[0].finished = true;
-
-// playing around in the console
-//window.store = store;

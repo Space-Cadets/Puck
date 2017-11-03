@@ -1,8 +1,77 @@
 #navbar {
     border-bottom: 1px solid #f1f3f4;
-    padding: 2px 5vw;
+    padding: 2px 2vw;
+}
+
+#navbar-logo {
+    width: 90px;
+    margin: auto;
+    margin-top: 5px;
+    height: 32px;
+}
+
+#navbar-search {
+  width: 100%;
+  padding: 6px;
+  height: 42px;
+}
+
+#small-logo {
+  margin: auto;
+}
+
+#navbar-search > input {
+    height: 42px;
+    width: 100%;
+    font-size: 18px;
+    text-indent: 5px;
+    border-right: 1px solid #ccc;
+    border: none;
+    outline: none;
+}
+
+#navbar-burger {
+    width: auto;
+    height: 50px;
+}
+
+#navbar-rand {
+    font-size: 14px;
+    height: 43px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#navbar-rand > input:focus {
+  background-color: white;
+}
+
+#navbar-rand:hover, #navbar-search > input:hover {
+    background-color: #f1f1f1;
 }
 
 .menuitem {
     font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+    #navbar {
+        padding: 2px 5vw;
+    }
+    #navbar-logo {
+      margin: auto;
+    }
+    #navbar-search {
+        margin-left: 2%;
+        height: 42px;
+        width: 600px;
+    }
+    #navbar-search > input {
+        height: 42px;
+        border: 1px solid #ccc;
+        text-indent: 10px;
+        border-radius: 5px;
+    }
 }

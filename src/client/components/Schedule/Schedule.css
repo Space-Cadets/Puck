@@ -1,0 +1,14 @@
+#schedule-container {
+    background-color: white;
+    border: 1px solid #f1f3f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+    #schedule-container {
+      margin: 20px;
+    }
+}

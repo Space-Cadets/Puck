@@ -1,0 +1,20 @@
+.day-container {
+    width: 100%;
+    position: relative;
+}
+
+.day {
+    position: relative;
+    width: 100%;
+}
+
+.day-class {
+    min-height: 52px;
+    color: #2b4460;
+    font-weight: 700;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0px 3px 0px 0px grey;
+}
