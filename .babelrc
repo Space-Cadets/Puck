@@ -5,7 +5,8 @@
         "browsers": ["last 2 versions", "safari >= 7"]
       }
     }],
-    "react"
+    "react",
+    "es2017"
   ],
-  "plugins": ["syntax-decorators"]
+  "plugins": ["syntax-decorators", "transform-object-rest-spread"]
 }

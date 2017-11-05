@@ -1,0 +1,355 @@
+{
+"attributes": [ ],
+"class":  "8740" ,
+"comment": "Session A Hybrid Schedule; Mondays & Wednesdays 1/17, 1/22, 1/24 & 1/29 at 17th & Market; Saturday 2/3/18 at the Inn at Villanova; " ,
+"crn":  "34001" ,
+"department":  "MBA" ,
+"enrolled": 36 ,
+"id":  "008b8d0d-49f0-4e63-999b-0628afe933df" ,
+"instructors": [
+"Frederick J. Young"
+] ,
+"name":  "Global Political Economy" ,
+"prereqs": [ ],
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Graduate Business
+
+
+Must be assigned one of the following Student Attributes:
+
+
+      Fast Track Center City Campus
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "MW" ,
+"endTime":  "21:30" ,
+"location":  "TBA" ,
+"startTime":  "18:00"
+} ,
+{
+"days":  "MW" ,
+"endTime":  "21:30" ,
+"location":  "TBA" ,
+"startTime":  "18:00"
+}
+] ,
+"section":  "001" ,
+"size": 40
+} {
+"attributes": [ ],
+"class":  "3000" ,
+"comment":  "Competition Dates: Wed April 11 - Sat April 14; " ,
+"crn":  "33847" ,
+"department":  "VSB" ,
+"enrolled": 25 ,
+"id":  "0074e94b-687b-466d-8370-0a00f093b7a8" ,
+"instructors": [
+"Ward A. Utter"
+] ,
+"name":  "Backpack-to-Briefcase: JR Sem" ,
+"prereqs": [ ],
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+Must be enrolled in one of the following Colleges:
+
+
+      School of Business
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "T" ,
+"endTime":  "17:15" ,
+"location":  "TBA" ,
+"startTime":  "16:00"
+}
+] ,
+"section":  "001" ,
+"size": 35
+} {
+"attributes": [ ],
+"class":  "3302" ,
+"comment":  "" ,
+"crn":  "32128" ,
+"department":  "COM" ,
+"enrolled": 10 ,
+"id":  "00b83326-7b07-4dad-81b5-4709f86c7d6f" ,
+"instructors": [
+"Hezekiah L. Lewis"
+] ,
+"name":  "Advanced Film & Video Prod" ,
+"prereqs": [
+"COM 3301"
+] ,
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "T" ,
+"endTime":  "15:30" ,
+"location":  "TBA" ,
+"startTime":  "13:00"
+}
+] ,
+"section":  "001" ,
+"size": 12
+} {
+"attributes": [ ],
+"class":  "8401" ,
+"comment":  "" ,
+"crn":  "32984" ,
+"department":  "MAT" ,
+"enrolled": 8 ,
+"id":  "00dddcc6-bb03-4908-8712-a6af54a81fda" ,
+"instructors": [
+"Michael L. Levitan"
+] ,
+"name":  "Statistical Theory II" ,
+"prereqs": [
+"MAT 5700" ,
+"MAT 8400"
+] ,
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Graduate Arts and Sciences
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "T" ,
+"endTime":  "20:45" ,
+"location":  "TBA" ,
+"startTime":  "18:15"
+}
+] ,
+"section":  "001" ,
+"size": 20
+} {
+"attributes": [ ],
+"class":  "1300" ,
+"comment":  "" ,
+"crn":  "32212" ,
+"department":  "CSC" ,
+"enrolled": 10 ,
+"id":  "00b1eaea-66a3-4b06-a07f-9d2db9c52293" ,
+"instructors": [
+"Robert A. Styer"
+] ,
+"name":  "Discrete Structures" ,
+"prereqs": [ ],
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "TR" ,
+"endTime":  "12:45" ,
+"location":  "TBA" ,
+"startTime":  "11:30"
+}
+] ,
+"section":  "002" ,
+"size": 24
+} {
+"attributes": [ ],
+"class":  "4611" ,
+"comment":  "" ,
+"crn":  "32044" ,
+"department":  "CHM" ,
+"enrolled": 10 ,
+"id":  "00058ac8-2794-400b-add4-82fa79a2f7ed" ,
+"instructors": [
+"Peter M. Palenchar"
+] ,
+"name":  "Survey of Biochemistry" ,
+"prereqs": [
+"CHM 2212" ,
+"CHM 3212" ,
+"BIO 2105"
+] ,
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "MW" ,
+"endTime":  "20:45" ,
+"location":  "TBA" ,
+"startTime":  "19:30"
+}
+] ,
+"section":  "100" ,
+"size": 30
+} {
+"attributes": [
+"Core" ,
+"Social" ,
+"Science," ,
+"A&S" ,
+"Research" ,
+"Requirement"
+] ,
+"class":  "1900" ,
+"comment":  "" ,
+"crn":  "33465" ,
+"department":  "PSC" ,
+"enrolled": 6 ,
+"id":  "001ac7fe-5892-449f-b48b-e6b91da6d79f" ,
+"instructors": [
+"Simanti Lahiri"
+] ,
+"name":  "Research Seminar" ,
+"prereqs": [ ],
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+Must be enrolled in one of the following Majors:
+
+
+      Political Science
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "MW" ,
+"endTime":  "14:45" ,
+"location":  "TBA" ,
+"startTime":  "13:30"
+}
+] ,
+"section":  "001" ,
+"size": 20
+} {
+"attributes": [
+"Core" ,
+"Social" ,
+"Science"
+] ,
+"class":  "1002" ,
+"comment":  "" ,
+"crn":  "32373" ,
+"department":  "ECO" ,
+"enrolled": 0 ,
+"id":  "0010f0a4-e246-4b4b-8015-cf79e1f93974" ,
+"instructors": [
+"Zeynep Kabukcuoglu"
+] ,
+"name":  "Intro to Macro" ,
+"prereqs": [ ],
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "TR" ,
+"endTime":  "15:45" ,
+"location":  "TBA" ,
+"startTime":  "14:30"
+}
+] ,
+"section":  "011" ,
+"size": 30
+} {
+"attributes": [
+"Core" ,
+"Social" ,
+"Science"
+] ,
+"class":  "1002" ,
+"comment":  "" ,
+"crn":  "32692" ,
+"department":  "GEV" ,
+"enrolled": 0 ,
+"id":  "00b31ed5-a012-4a9e-8a40-a039541f278a" ,
+"instructors": [
+"Bonnie M. Henderson"
+] ,
+"name":  "Geo. of a Globalizing World" ,
+"prereqs": [ ],
+"restrictions":  "
+Must be enrolled in one of the following Levels:
+
+
+      Undergraduate
+
+
+Must be enrolled in one of the following Colleges:
+
+
+      Arts
+
+
+      Sciences
+
+
+May not be enrolled in one of the following Campuses:
+
+University Alliance" ,
+"schedule": [
+{
+"days":  "TR" ,
+"endTime":  "14:15" ,
+"location":  "TBA" ,
+"startTime":  "13:00"
+}
+] ,
+"section":  "001" ,
+"size": 15
+}

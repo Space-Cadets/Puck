@@ -1,8 +1,11 @@
 #schedule {
     width: 100%;
+    max-width: 960px;
+    margin: 0px;
 }
 
 #schedule-container {
+    max-width: 960px;
     height: 85vh;
     background-color: white;
     border: 1px solid #f1f3f4;
@@ -22,7 +25,7 @@
 .schedule-time {
     position: absolute;
     right: 5px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 

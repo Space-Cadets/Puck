@@ -25,7 +25,7 @@ const common = {
 };
 
 const client = {
-  entry: './src/client/index.js',
+  entry: ['babel-polyfill', './src/client/index.js'],
   output: {
     path: __dirname + '/dist',
     filename: 'client.bundle.js',
@@ -35,7 +35,7 @@ const client = {
 };
 
 const server = {
-  entry: './src/server/index.js',
+  entry: ['babel-polyfill','./src/server/index.js'],
   output: { path: __dirname + '/dist', filename: 'server.bundle.js' },
   target: 'node',
   externals: [nodeExternals()],
