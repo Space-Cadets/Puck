@@ -1,6 +1,8 @@
 #navbar {
-    border-bottom: 1px solid #f1f3f4;
+    box-shadow: 0px 1px 0px 0px #2b4460;
     padding: 2px 2vw;
+    z-index: 1;
+    background-color: #3373dc;
 }
 
 #navbar-logo {
@@ -23,9 +25,8 @@
 #navbar-search > input {
     height: 42px;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     text-indent: 5px;
-    border-right: 1px solid #ccc;
     border: none;
     outline: none;
 }
@@ -36,32 +37,37 @@
 }
 
 #navbar-rand {
-    font-size: 14px;
+    font-size: 16px;
     height: 43px;
     margin: 5px;
     cursor: pointer;
-    border: 1px solid #ccc;
+    background-color: white;
     border-radius: 5px;
+    color: #3373dc;
 }
 
 #navbar-rand > input:focus {
   background-color: white;
 }
 
-#navbar-rand:hover, #navbar-search > input:hover {
+#navbar-rand:hover {
     background-color: #f1f1f1;
 }
 
 .menuitem {
     font-size: 18px;
+    color: white;
 }
 
 @media only screen and (min-width: 768px) {
     #navbar {
         padding: 2px 5vw;
+        position: fixed;
+        top: 0px;
+        width: 100vw;
     }
     #navbar-logo {
-      margin: auto;
+        margin: auto;
     }
     #navbar-search {
         margin-left: 2%;
@@ -70,7 +76,6 @@
     }
     #navbar-search > input {
         height: 42px;
-        border: 1px solid #ccc;
         text-indent: 10px;
         border-radius: 5px;
     }

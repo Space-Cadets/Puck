@@ -49,6 +49,7 @@
     "mobx-react-devtools": "^4.2.11",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-router-dom": "^4.2.2",
     "react-tooltip": "^3.4.0",
     "rethinkdb": "^2.3.3"
   }

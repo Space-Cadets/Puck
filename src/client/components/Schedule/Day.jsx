@@ -14,10 +14,11 @@ export default class Day extends React.Component {
       ...this.props.courseData,
       showData: "",
     };
+
+    //bind all these events so we can call them with 'this'
     this.showCourse = this.showCourse.bind(this);
     this.hideCourse = this.hideCourse.bind(this);
     this.toggleCourse = this.toggleCourse.bind(this);
-
   }
 
   //gets dom el's for schedule any given day -- render sections
@@ -28,7 +29,7 @@ export default class Day extends React.Component {
         return (
           <div onClick={this.showCourse}
                onMouseEnter={this.showCourse}
-               data-for={`courseData-${c.crn}`}
+               data-for={`courseData-${c.crn}${this.props.day}`}
                data-tip="course"
                data-crn={c.crn}
                className="day-class"
@@ -81,17 +82,22 @@ export default class Day extends React.Component {
     let courseInfo = this.state.sections[crn];
     return (
       <ReactTooltip className="extraClass"
-                    id={`courseData-${crn}`}
+                    id={`courseData-${crn}${this.props.day}`}
                     delayHide={200}
                     place="right"
                     type="info"
                     effect="solid">
         <div className="section">
           <div className="section-name">
-            {courseInfo.department}: {courseInfo.class} - {courseInfo.name}
+            <a href={`/courses/${courseInfo.department}${courseInfo.class}`}>
+              {courseInfo.department}: {courseInfo.class} - {courseInfo.name}
+            </a>
           </div>
           <div className="section-title">
             Section: {courseInfo.section}
+          </div>
+          <div className="section-day">
+            Days: {courseInfo.schedule.map(s => `${s.days} from ${s.startTime} to ${s.endTime}`).join(" ")}
           </div>
           <div className="section-instructor">Instructor: {courseInfo.instructors.join(" ")}</div>
           <div className="section-crn">CRN: {courseInfo.crn}</div>
@@ -102,6 +108,13 @@ export default class Day extends React.Component {
           <div className="section-prereqs">
             {courseInfo.prereqs.length ? `Prerequisites: ${courseInfo.prereqs.join(" ")}` : ""}
           </div>
+          <div className="section-description">
+            {courseInfo.description}
+          </div>
+          <div>
+            Credits: {courseInfo.credits.substring(0, 3)}
+          </div>
+          <a className="button is-white">drop</a>
         </div>
       </ReactTooltip>
     );

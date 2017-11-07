@@ -9,14 +9,16 @@
 }
 
 .day-class {
-    overflow: auto;
-    padding: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 5px;
     min-height: 52px;
     color: #2b4460;
     font-weight: 700;
+    transition:all 0.5s linear;
     position: absolute;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid transparent;
     border-radius: 3px;
     box-shadow: 0px 3px 0px 0px grey;
 }
@@ -26,14 +28,22 @@
     padding: 0px;
 }
 
-.section-name {
+.section-name > a {
+  color: white;
   font-size: 16px;
+  text-decoration: underline;
 }
 
 .extraClass {
     font-size: 14px !important;
     pointer-events: auto !important;
     opacity: 1 !important;
+}
+
+.section > .button {
+  height: 30px;
+  margin-top: 20px;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 768px) {

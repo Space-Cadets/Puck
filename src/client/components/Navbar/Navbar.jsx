@@ -11,7 +11,7 @@ export default class Navbar extends React.Component {
 						<img id="small-logo" src="/static/img/modsm.png" className="is-hidden-desktop"></img>
 					</a>
 					<div id="navbar-search" className="containter">
-						<input placeholder="search"></input>
+						<input placeholder="search classes / teachers"></input>
 					</div>
 					<div className="navbar-burger" id="navbar-burger">
 						<div className="navbar-item menuitem">

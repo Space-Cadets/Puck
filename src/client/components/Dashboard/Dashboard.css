@@ -1,0 +1,47 @@
+#dashboard {
+    display: block;
+    position: fixed;
+    top: 56px;
+    width: 60px;
+    background-color: #222;
+    min-height: 100vh;
+    columns: 1;
+    z-index: 0;
+    font-size: 18px;
+}
+
+.dashboard-item, .dashboard-item > i {
+
+    width: 47px;
+    height: 47px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 44px;
+    position: relative;
+    display: block;
+}
+
+.dashboard-item {
+    cursor: pointer;
+    margin: 15px 5px;
+    color: #2b4460;
+}
+
+.dashboard-item > a {
+    color: #2b4460;
+}
+
+.dashboard-item:hover {
+    color: white;
+}
+
+.dashboard-item > .caret {
+    position: absolute;
+    right: -25px;
+    font-size: 36px;
+    color: #222;
+}
+
+.focus {
+    color: #f5f5f5 !important;
+}

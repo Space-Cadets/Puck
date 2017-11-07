@@ -1,0 +1,32 @@
+#meta {
+    float: right;
+    background-color: white;
+    margin-left: 80px;
+    margin-top: 20px;
+    border: 1px solid #f1f3f4;
+    border-radius: 5px;
+    max-height: 85vh;
+    height: 85vh;
+    overflow: auto;
+}
+
+.meta-class {
+    color: #2b4460;
+    border: 1px solid transparent;
+    padding: 5px;
+    margin: 10px 2px;
+    border-radius: 3px;
+}
+
+.meta-class-cn {
+    font-weight: bold;
+    font-size: 16px;
+}
+#meta-head {
+  height: 30px;
+}
+#meta-credits {
+  top: 12px;
+  float: right;
+  position: relative;
+}

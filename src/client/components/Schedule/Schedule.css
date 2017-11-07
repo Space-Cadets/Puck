@@ -4,6 +4,10 @@
     margin: 0px;
 }
 
+#schedule-screen {
+    min-height: 100vh;
+}
+
 #schedule-container {
     max-width: 960px;
     height: 85vh;
@@ -16,10 +20,11 @@
 }
 
 #schedule-time {
-    max-width: 100px;
-    height: 65vh;
-    top: 90px;
-    position: relative;
+  width: 60px;
+  height: 65vh;
+  top: 90px;
+  position: relative;
+  max-width: 100px;
 }
 
 .schedule-time {
@@ -29,8 +34,32 @@
     font-weight: bold;
 }
 
+#schedule-lines > schedule-time {
+    display: none;
+}
+
+
 @media only screen and (min-width: 768px) {
     #schedule-container {
       margin: 20px;
+      margin-left: 10px;
+      float: right;
+      min-width: 1000px;
+    }
+
+    #schedule-lines {
+      position: absolute;
+      width: 97%;
+      right: 10px;
+      height: 65vh;
+      top: 100px;
+    }
+
+    #schedule-lines > .schedule-time {
+      color: white !important;
+      border-top: 1px solid #efefef;
+      font-size: 0px;
+      height: 14px;
+      width: calc(100% - 10px);
     }
 }

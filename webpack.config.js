@@ -4,9 +4,6 @@ const nodeExternals = require('webpack-node-externals');
 
 const common = {
   devtool: 'eval',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   resolve: {
     extensions: ['.js', '.jsx']
   },
