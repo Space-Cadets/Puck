@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { observer } from "mobx-react";
 import Navbar from './Navbar/Navbar.jsx';
 import Dashboard from './Dashboard/Dashboard.jsx';
+import Footer from './Footer/Footer.jsx';
 import Schedule from './Schedule/Schedule.jsx';
 
 @oberver
@@ -17,10 +18,9 @@ export default class App extends React.Component {
 					<Navbar />
 					<Dashboard />
 					<Router>
-						<Route exact path="/"
-									 render={()=>(<Schedule classes={this.props.classes}/>)}
-									 />
+						<Route exact path="/" render={()=>(<Schedule classes={this.props.classes}/>)} />
 					</Router>
+					<Footer />
 	      </div>
 		);
 	}

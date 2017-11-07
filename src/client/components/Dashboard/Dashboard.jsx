@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <span id="dashboard" className="is-hidden-mobile">
-        <span className="dashboard-item">
+        <span className="dashboard-item focus">
           <i className="fa fa-caret-left caret"></i>
           <i className="fa fa-calendar"></i>
         </span>

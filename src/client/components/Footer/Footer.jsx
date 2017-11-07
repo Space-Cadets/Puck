@@ -9,11 +9,21 @@ export default class Footer extends React.Component {
   }
   render() {
     return (
-      <span id="dashboard" className="is-hidden-mobile">
-        <span className="dashboard-item focus"><i className="fa fa-calendar"></i></span>
-        <span className="dashboard-item"><i className="fa fa-search"></i></span>
-        <span className="dashboard-item"><i className="fa fa-diamond"></i></span>
-      </span>
+      <footer className="footer">
+        <div className="container">
+          <div className="content has-text-centered">
+            <div>
+              Mods by <a href="https://github.com/ahermida">Albert Hermida</a>. The source code is licensed
+              <a href="http://opensource.org/licenses/mit-license.php"> MIT</a>.
+                <div>
+                  The website content is not my own.
+                </div>
+              <div><a href="mailto:ahermida@villanova.com">submit feedback</a></div>
+              <div><a href="https://github.com/Space-Cadets/Puck">source code</a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
     );
   }
 }

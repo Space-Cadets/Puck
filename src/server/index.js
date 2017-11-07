@@ -3,9 +3,11 @@ import path from 'path';
 import r from 'rethinkdb';
 import bodyParser from 'body-parser';
 import config from './config.js';
+import fs from 'fs';
 
 //db connection
 let session = null;
+let classes = null;
 
 //setup db
 r.connect({ host: 'localhost', port: config.rethinkdb }, function(err, conn) {
@@ -13,6 +15,28 @@ r.connect({ host: 'localhost', port: config.rethinkdb }, function(err, conn) {
     throw err;
   console.log("Connected")
   session = conn;
+
+  //write sections to object
+  r.db('courses')
+    .table('sections')
+    .run(session, (err, cursor) => {
+      if (err)
+        console.log(err);
+      cursor.toArray((err, result) => {
+        classes = JSON.stringify({
+          courses: result,
+          timestamp: Date.now(),
+        });
+        //write course sections to static file
+        fs.writeFile('./static/js/sections.json', classes, 'utf-8', err => {
+          if (err) {
+            throw err;
+          }
+          console.log("Sections written to /static/js/sections.json");
+        });
+      });
+   });
+
 });
 
 const app = express();

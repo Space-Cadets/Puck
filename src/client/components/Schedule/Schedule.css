@@ -1,11 +1,13 @@
 #schedule {
-    width: 100%;
     max-width: 960px;
     margin: 0px;
+    width: 100%
 }
 
 #schedule-screen {
-    min-height: 100vh;
+    background-color: #f5f5f5;
+    margin-bottom: 0px;
+    overflow: scroll;
 }
 
 #schedule-container {

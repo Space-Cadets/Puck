@@ -19,7 +19,7 @@ export default class Schedule extends React.Component {
 
 	render() {
 		return (
-      <div id="schedule-screen" className="columns">
+      <div id="schedule-screen" className="columns is-mobile">
         <Meta classes={this.classes} />
         <Timetable classes={this.classes} />
       </div>
