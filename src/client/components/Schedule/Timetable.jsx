@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import './Schedule.css';
 import Day from './Day.jsx';
 
 //The timetable component will actulaly show the schedule
 //NOTE: we get the lines across in a really hacky way
+@observer
 export default class Timetable extends React.Component {
   constructor(props) {
     super(props);
 
-    if (this.props.classes.length) {
-      this.state = parseClassData(this.props.classes);
+    if (this.props.store.userClasses.length) {
+      this.state = parseClassData(this.props.store.userClasses);
     } else {
       this.state = {
         sched: {
@@ -24,23 +26,10 @@ export default class Timetable extends React.Component {
         end: 21,
       }
     }
-    /* rendering data looks like this
-    [
-      {
-        crn: 12314,
-        start: 10,
-        end: 11,
-        startStr: "10:00AM",
-        endStr: "11:00AM",
-        color: "orange",
-        section: "001",
-        class: "1052",
-        department: "CSC",
-        name: "Algorithms and Data Structures II",
-        instructors: ["Dr. Joyce"],
-      }
-    ]
-    */
+  }
+
+  componentWillReact() {
+    console.log('DING');
   }
 
   //NOTE: should fix this clunky function, it fits oddly with UI
@@ -52,7 +41,7 @@ export default class Timetable extends React.Component {
     let timeEls = [];
     let times = new Set();
     const get15B4 = (time) => {
-      let s = time.split(":");
+      let s = time.split(':');
       let right = parseInt(s[1]);
       if (right < 15) {
         return `${parseInt(s[0]) - 1}:${60 + right - 15}`
@@ -62,7 +51,7 @@ export default class Timetable extends React.Component {
       }
     }
     const get15After = (time) => {
-      let s = time.split(":");
+      let s = time.split(':');
       let right = parseInt(s[1]);
       if (right >= 45) {
         let mins = right + 15 - 60;
@@ -111,6 +100,7 @@ export default class Timetable extends React.Component {
 
 	render() {
     const times = this.generateTimes(Object.values(this.state.sections));
+    const fake = getFake(this.props.fake);
 		return (
       <div id="schedule-container" className="container column columns is-mobile">
         <div id="schedule-lines" className="is-hidden-mobile">
@@ -123,37 +113,46 @@ export default class Timetable extends React.Component {
           <div className="column">
             <p className="day-label notification is-info">Monday</p>
             <div className="day-container">
-              <Day day="M" courseData={this.state} classes={this.state.sched.m}/>
+              <Day fake={fake.m} day="M" courseData={this.state} classes={this.state.sched.m}/>
             </div>
           </div>
           <div className="column">
             <p className="day-label notification is-primary">Tuesday</p>
             <div className="day-container">
-              <Day day="T" courseData={this.state} classes={this.state.sched.t}/>
+              <Day fake={fake.t} day="T" courseData={this.state} classes={this.state.sched.t}/>
             </div>
           </div>
           <div className="column">
             <p className="day-label notification is-info">Wednesday</p>
             <div className="day-container">
-              <Day day="W" courseData={this.state} classes={this.state.sched.w}/>
+              <Day fake={fake.w} day="W" courseData={this.state} classes={this.state.sched.w}/>
             </div>
           </div>
           <div className="column">
             <p className="day-label notification is-primary">Thursday</p>
             <div className="day-container">
-              <Day day="R" courseData={this.state} classes={this.state.sched.r}/>
+              <Day fake={fake.r} day="R" courseData={this.state} classes={this.state.sched.r}/>
             </div>
           </div>
           <div className="column">
             <p className="day-label notification is-info">Friday</p>
             <div className="day-container">
-              <Day day="F" courseData={this.state} classes={this.state.sched.f}/>
+              <Day fake={fake.f} day="F" courseData={this.state} classes={this.state.sched.f}/>
             </div>
           </div>
         </div>
       </div>
 		);
 	}
+}
+
+//return class schedule in dictionary indexed by day
+function getFake(c) {
+  let arr = [];
+  if (c)
+    arr.push(c);
+  let data = parseClassData(arr);
+  return data.sched;
 }
 
 //Take time like 15:30 and get 15.5
@@ -173,7 +172,7 @@ function numToTime(num) {
 
 //military to ampm
 export function getNormalTime(d) {
-  let s = d.split(":");
+  let s = d.split(':');
   let hour = parseInt(s[0]);
   let mins = parseInt(s[1]);
   let ampm = hour >= 12 ? "PM" : "AM";

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import ReactTooltip from 'react-tooltip';
+import { observer } from 'mobx-react';
 
 import './Day.css'
 
 //The day component manages classes passed in [one class day]. Columns in Sched.
+@observer
 export default class Day extends React.Component {
   constructor(props) {
     super(props);
@@ -23,26 +25,35 @@ export default class Day extends React.Component {
 
   //gets dom el's for schedule any given day -- render sections
   getClasses(classes = []) {
-      return classes.map((c,i) => {
-        let styles = this.getPercentage(c, this.props.courseData.start, this.height);
-        styles.backgroundColor = c.color;
-        return (
-          <div onClick={this.showCourse}
-               onMouseEnter={this.showCourse}
-               data-for={`courseData-${c.crn}${this.props.day}`}
-               data-tip="course"
-               data-crn={c.crn}
-               className="day-class"
-               key={i}
-               style={styles}>
-            <div className="class-section">
-              {c.department}:{c.class}-{c.section}
-            </div>
-            <div className="class-instructor">{c.instructors.join(" ")}</div>
-            { this.state.showData === c.crn ? this.getSection(c.crn, c.start, c.end) : "" }
+    return classes.map((c,i) => {
+      let styles = this.getPercentage(c, this.props.courseData.start, this.height);
+      styles.backgroundColor = c.color;
+      return (
+        <div onClick={this.showCourse}
+             onMouseEnter={this.showCourse}
+             data-for={`courseData-${c.crn}${this.props.day}`}
+             data-tip="course"
+             data-crn={c.crn}
+             className="day-class"
+             key={i}
+             style={styles}>
+          <div className="class-section">
+            {c.department}:{c.class}-{c.section}
           </div>
-        );
-      });
+          <div className="class-instructor">{c.instructors.join(" ")}</div>
+          { this.state.showData === c.crn ? this.getSection(c.crn, c.start, c.end) : "" }
+        </div>
+      );
+    });
+  }
+
+  //render a fake class
+  getFake(c) {
+    let styles = this.getPercentage(c, this.props.courseData.start, this.height);
+    return (
+      <div className="day-class fake" style={styles}>
+      </div>
+    )
   }
 
   // NOTE: these use computed properties
@@ -60,7 +71,7 @@ export default class Day extends React.Component {
 
   hideCourse() {
     this.setState({
-      showData: ""
+      showData: ''
     });
   }
 
@@ -122,7 +133,7 @@ export default class Day extends React.Component {
 
 	render() {
     return (
-      <div className="day" style={{height: "65vh"}}>
+      <div className="day">
         {this.getClasses(this.props.classes)}
       </div>
     );

@@ -1,4 +1,4 @@
-const fuseWorker = new Worker("/static/js/search.js");
+const fuseWorker = new Worker('/static/js/search.js');
 
 // Since we're only listening to data,
 const fuse = {
@@ -8,7 +8,7 @@ const fuse = {
       type: 'search',
       searchData: str,
     });
-    console.log("searching");
+    console.log('searching');
 
     //resolve worker queries in promises to make life a little easier
     return new Promise((resolve, reject) => {
@@ -16,7 +16,7 @@ const fuse = {
         if (!data) {
           reject();
         }
-        console.log("done");
+        console.log('done');
         resolve(data);
       };
     });

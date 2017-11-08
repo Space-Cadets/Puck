@@ -6,6 +6,7 @@
 .day {
     position: relative;
     width: 100%;
+    height: 65vh;
 }
 
 .day-class {
@@ -44,6 +45,10 @@
   height: 30px;
   margin-top: 20px;
   font-weight: 500;
+}
+
+.fake {
+  background-color: orange !important;
 }
 
 @media only screen and (max-width: 768px) {

@@ -1,6 +1,7 @@
 #meta {
     min-width: 300px;
     float: right;
+    overflow: none;
     background-color: white;
     margin-left: 80px;
     margin-top: 20px;

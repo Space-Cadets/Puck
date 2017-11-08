@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { autorun } from 'mobx';
+import { observer } from 'mobx-react';
 import './Meta.css';
 
 //The schedule component will display a student's schedule by day (m-f),
 //It will also show the times that are on a student's schedule with metadata.
+@observer
 export default class Meta extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   getClassEls(classes) {
@@ -22,9 +26,10 @@ export default class Meta extends React.Component {
 
 	render() {
 
-    const credits = this.props.classes.reduce((sum, c) => {
-        return parseInt(c.credits) + sum;
-    }, 0)
+    let credits = 0;
+    this.props.store.userClasses.forEach(c => {
+      credits += parseInt(c.credits);
+    });
 
 		return (
       <div id="meta" className="column container">
@@ -33,7 +38,7 @@ export default class Meta extends React.Component {
           <span id="meta-credits" className="subtitle is-5" >Credits: {credits}</span>
         </span>
         <div id="meta-classes">
-          {this.getClassEls(this.props.classes)}
+          {this.getClassEls(this.props.store.userClasses)}
         </div>
       </div>
     );
