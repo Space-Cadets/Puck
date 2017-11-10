@@ -28,7 +28,7 @@ const options = {
   ]
 };
 
-const crns = localStorage.schedule || ['32769','33349', '33396', '33579', '33582'];
+const crns = localStorage.crns ? localStorage.crns.split(",") : [];
 
 (async function init() {
   const db = await getDB();

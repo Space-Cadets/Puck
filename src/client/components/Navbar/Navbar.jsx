@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import fuse from '../../fuse/fuse.js';
 import { action } from "mobx";
 import { observer } from "mobx-react";
-import { getNormalTime } from '../Schedule/Timetable.jsx';
+import { getNormalTime } from '../../stores/store.js';
 import './Navbar.css';
 
 @observer
@@ -20,8 +20,6 @@ export default class Navbar extends React.Component {
 		this.hideSearch = this.hideSearch.bind(this);
 		this.showSearch = this.showSearch.bind(this);
 		this.addClass = this.addClass.bind(this);
-
-
 	}
 
 	doSearch(item) {
@@ -86,7 +84,7 @@ export default class Navbar extends React.Component {
 		while (!target.dataset.crn)
 			target = target.parentNode;
 		let course = target.dataset.crn;
-		console.log(course);
+		this.hideSearch();
 		this.store.addClass(this.props.store.classes[course]);
 	}
 

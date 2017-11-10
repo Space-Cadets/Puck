@@ -13,10 +13,12 @@
 }
 
 .meta-class {
+    cursor: pointer;
     color: #2b4460;
     border: 1px solid transparent;
     padding: 5px;
     margin: 10px 2px;
+    position: relative;
     border-radius: 3px;
 }
 
@@ -24,6 +26,35 @@
     font-weight: bold;
     font-size: 16px;
 }
+
+.meta-class:hover > .meta-class-rm {
+    visibility: visible;
+}
+
+.meta-class-rm {
+    display: inline-flex;
+    visibility: hidden;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 15%;
+    height: 100%;
+    vertical-align: center;
+    vertical-align: middle;
+    align-self: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.meta-class-rm:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.meta-class-rm > i {
+    margin: auto;
+}
+
 #meta-head {
   height: 30px;
 }
