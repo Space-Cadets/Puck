@@ -32,10 +32,10 @@ const crns = localStorage.crns ? localStorage.crns.split(",") : [];
 
 (async function init() {
   const db = await getDB();
-  const sections = await getCourses();
+  const courseData = await getCourses();
   const schedule = await resolve(crns);
-  const store = new Store(sections, schedule.classes);
-  fuse.start(Object.values(sections), options)
+  const store = new Store(courseData, schedule.classes);
+  fuse.start(Object.values(courseData.courses), options)
   render(
     <App store={store} db={db} />,
     document.getElementById('root')

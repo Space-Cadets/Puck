@@ -14,7 +14,7 @@ export default class Schedule extends React.Component {
 		return (
       <div id="schedule-screen" className="columns is-mobile">
         <Meta store={this.props.store} />
-        <Timetable fake={this.props.fake} store={this.props.store} />
+        <Timetable store={this.props.store} />
       </div>
     );
   }

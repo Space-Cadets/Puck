@@ -13,11 +13,15 @@ class State {
       return c;
     });
 
+    this.manager = new ScheduleManager(courses);
+    this.manager.start();
+    window.manager = this.manager;
+
     //this data will be rendered.
     extendObservable(this, {
-      classes: courseData,
+      classes: courseData.courses,
       userClasses: courses,
-      fake: null,
+      index: courseData.index,
     });
   }
 
@@ -25,7 +29,13 @@ class State {
     return parseClassData(this.userClasses);
   }
 
+  //NOTE: crn for collison found
+  hasCollision(c) {
+    return this.manager.hasCollision(c);
+  }
+
   addClass(course) {
+    this.manager.addClass(course);
     this.colorIndex = (this.colorIndex + 1) % this.colors.length;
     course.color = this.colors[this.colorIndex];
     this.userClasses.push(course);
@@ -35,6 +45,7 @@ class State {
   }
 
   removeClass(crn) {
+    this.manager.removeClass(crn);
     this.colorIndex--;
     if (this.colorIndex < 0) {
       this.colorIndex = this.colors.length - 1;
@@ -43,6 +54,115 @@ class State {
     if (localStorage)
       localStorage.crns = this.userClasses.map(c => c.crn);
   }
+}
+
+//go in order and mark the courses that have collisions
+//NOTE: brute force it because I don't want to write an interval-tree (the ideal)
+class ScheduleManager {
+    constructor(courses) {
+      this.c = courses;
+      this.courses = {
+        m: [],
+        t: [],
+        w: [],
+        r: [],
+        f: []
+      };
+
+      this._getDays = this._getDays.bind(this);
+    }
+
+    //start out by indexing courses from start
+    start() {
+      this.c.forEach(course => this.addClass(course));
+    }
+
+    _format(crn, start, end) {
+      return {
+        crn: crn,
+        start: timeToNum(start),
+        end: timeToNum(end),
+      };
+    }
+
+    //get a class split up into schedule items by day
+    _getDays(c) {
+      let sched = {
+        m: [],
+        t: [],
+        w: [],
+        r: [],
+        f: [],
+      };
+      c.schedule.forEach(s => {
+        switch(s.days) {
+          case "M":
+            sched.m.push(this._format(c.crn, s.startTime, s.endTime));
+            break;
+          case "T":
+            sched.t.push(this._format(c.crn, s.startTime, s.endTime));
+            break;
+          case "W":
+            sched.w.push(this._format(c.crn, s.startTime, s.endTime));
+            break;
+          case "R":
+            sched.r.push(this._format(c.crn, s.startTime, s.endTime));
+            break;
+          case "F":
+            sched.f.push(this._format(c.crn, s.startTime, s.endTime));
+            break;
+          case "MWF":
+            [sched.m, sched.w, sched.f].map(d => d.push(this._format(c.crn, s.startTime, s.endTime)));
+            break;
+          case "TR":
+            [sched.t, sched.r].map(d => d.push(this._format(c.crn, s.startTime, s.endTime)));
+            break;
+          case "MW":
+            [sched.m, sched.w].map(d => d.push(this._format(c.crn, s.startTime, s.endTime)));
+            break;
+          default:
+            console.log("YO");
+        }
+      })
+      return sched;
+    }
+
+    //plops a course into the scheduleManager
+    addClass(c) {
+      const sch = this._getDays(c);
+
+      //add all the classes to our schedule by days
+      Object.keys(sch).forEach(d => {
+        sch[d].forEach(cl => this.courses[d].push(cl));
+      });
+    }
+
+
+    //check if we have a collision
+    hasCollision(c) {
+      let days = this._getDays(c);
+      let collision;
+      Object.keys(days).map(d => {
+        days[d].map(cl => this.courses[d].forEach(course => {
+          let start = cl.start;
+          let end = cl.end;
+          console.log(start, end);
+          console.log(course.start, course.end);
+          if (start <= course.end && end >= course.start) {
+            console.log("COLLISION")
+            return collision = course.crn;
+          }
+        }));
+      });
+      return collision;
+    }
+
+    //remove course by crn
+    removeClass(crn) {
+      Object.keys(this.courses).map(day => {
+        this.courses[day] = this.courses[day].filter(c => c.crn != crn);
+      });
+    }
 }
 
 //break up classes into days, renderable

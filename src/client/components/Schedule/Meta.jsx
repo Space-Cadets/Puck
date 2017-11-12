@@ -39,7 +39,8 @@ export default class Meta extends React.Component {
 	render() {
     let credits = 0;
     this.props.store.userClasses.forEach(c => {
-      credits += parseInt(c.credits);
+      if (c.credits)
+        credits += parseInt(c.credits);
     });
 
 		return (

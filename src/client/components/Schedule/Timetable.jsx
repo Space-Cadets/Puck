@@ -94,7 +94,10 @@ export default class Timetable extends React.Component {
               {getNormalTime(s.endTime)}
             </div>
           );
-          times.add(s.endTime)
+          times.add(s.endTime);
+
+          //this way we don't have collisions for night classes
+          getWithin(s.endTime, times).forEach(t => times.add(t));
         }
       });
     });
@@ -105,7 +108,7 @@ export default class Timetable extends React.Component {
 	render() {
     const state = this.props.store.courseRenderData;
     const times = this.generateTimes(state, Object.values(state.sections));
-    const fake = getFake(this.props.fake);
+
 		return (
       <div id="schedule-container" className="container column columns is-mobile">
         <div id="schedule-lines" className="is-hidden-mobile">
@@ -163,13 +166,4 @@ export default class Timetable extends React.Component {
       </div>
 		);
 	}
-}
-
-//return class schedule in dictionary indexed by day
-function getFake(c) {
-  let arr = [];
-  if (c)
-    arr.push(c);
-  let data = parseClassData(arr);
-  return data.sched;
 }

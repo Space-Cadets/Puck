@@ -41,9 +41,6 @@ r.connect({ host: 'localhost', port: config.rethinkdb }, function(err, conn) {
 
 const app = express();
 
-//handle '/' route
-app.get('/', (req, res) => res.sendFile(path.resolve(`index.html`)));
-
 //mount the 2 folders to static
 app.use('/static', express.static('static'));
 app.use('/static', express.static('dist'));
@@ -75,6 +72,9 @@ app.post('/crn', async (req, res) => {
       });
    });
 });
+
+//handle '/' route
+app.get('*', (req, res) => res.sendFile(path.resolve(`index.html`)));
 
 //start up the actual app
 app.listen(config.port,() => console.log(`App listening on Port:${config.port}`));

@@ -55,8 +55,10 @@
     background-color: #f8f8f8;
     cursor: pointer;
 }
-.search-cn {
+.collision {
+  color: red !important;
 }
+
 
 #small-logo {
     margin: auto;

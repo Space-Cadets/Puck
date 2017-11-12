@@ -3,6 +3,8 @@ import ReactTooltip from 'react-tooltip';
 import { getNormalTime } from '../../stores/store.js';
 import { observer } from 'mobx-react';
 import { computed, action } from 'mobx';
+import { Link } from 'react-router-dom';
+
 
 import './Day.css'
 
@@ -25,7 +27,6 @@ export default class Day extends React.Component {
   }
 
   @computed get courseData() {
-    console.log(this.props.courseData.start, this.props.courseData.end);
     return this.props.courseData;
   }
 
@@ -111,10 +112,11 @@ export default class Day extends React.Component {
                     effect="solid">
         <div className="section">
           <div className="section-name">
-            <a href={`/courses/${courseInfo.department}${courseInfo.class}`}>
+            <Link to={`/index/${crn}`}>
               {courseInfo.department}: {courseInfo.class} - {courseInfo.name}
-            </a>
+            </Link>
           </div>
+          <a data-crn={crn} onClick={this.removeClass} className="button is-white drop">remove</a>
           <div className="section-title">
             Section: {courseInfo.section}
           </div>
@@ -138,7 +140,6 @@ export default class Day extends React.Component {
           <div className="section-description">
             {courseInfo.description}
           </div>
-          <a data-crn={crn} onClick={this.removeClass} className="button is-white">drop</a>
         </div>
       </ReactTooltip>
     );

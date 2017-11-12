@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import fuse from '../../fuse/fuse.js';
 import { action } from "mobx";
 import { observer } from "mobx-react";
+import { withRouter } from 'react-router-dom';
 import { getNormalTime } from '../../stores/store.js';
 import './Navbar.css';
 
 @observer
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -49,10 +50,10 @@ export default class Navbar extends React.Component {
 	getResults(input) {
 
 		//render schedules in search
-		const getDay = (sched) => sched.map(s => {
+		const getDay = (sched) => sched.map((s, i) => {
 			if (s.days && s.days != 'TBA') {
 				return (
-					<span>
+					<span key={i}>
 						{getNormalTime(s.startTime)}-{getNormalTime(s.endTime)}
 						<span className="search-time">  {s.days}  </span>
 					</span>
@@ -64,13 +65,19 @@ export default class Navbar extends React.Component {
 
 		//return best search
 		return this.state.results.slice(0, 6).map(c => {
+			let collision = this.props.store.hasCollision(c);
+			console.log(c, collision);
 			return (
-				<div data-crn={c.crn} onClick={this.addClass} className="search-section">
+				<div data-crn={c.crn} onClick={this.addClass}
+					className={`search-section`}>
 					<span className="search-info">{c.department} {c.class} - {c.section}</span>
 					<span className="search-instructors">{c.instructors.join(" ")}</span>
 					<div className="search-cn">{c.name}</div>
 					<div>
 						{getDay(c.schedule)}
+					</div>
+					<div className="collision">
+						{collision ? `Conflicts with ${this.store.classes[collision].name}` : ""}
 					</div>
 				</div>
 			);
@@ -86,6 +93,9 @@ export default class Navbar extends React.Component {
 		let course = target.dataset.crn;
 		this.hideSearch();
 		this.store.addClass(this.props.store.classes[course]);
+		if (this.props.location != "/") {
+			this.props.history.push('/');
+		}
 	}
 
 	search(e) {
@@ -132,10 +142,12 @@ export default class Navbar extends React.Component {
 							<i className="fa fa-map" aria-hidden="true"></i>
 					</div>
 					<div className="navbar-item navbar-end menuitem">
-						<p>{this.props.name || '@ahermida'}</p>
+						<p>Spring 2018</p>
 					</div>
         </div>
       </nav>
 		);
 	}
 }
+
+export default withRouter(Navbar);

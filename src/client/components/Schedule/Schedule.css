@@ -24,7 +24,7 @@
 #schedule-time {
   width: 60px;
   height: 65vh;
-  top: 90px;
+  top: 95px;
   position: relative;
   max-width: 100px;
 }
@@ -54,7 +54,7 @@
       width: 97%;
       right: 10px;
       height: 65vh;
-      top: 100px;
+      top: 105px;
     }
 
     #schedule-lines > .schedule-time {

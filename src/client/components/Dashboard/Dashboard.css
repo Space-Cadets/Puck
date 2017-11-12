@@ -43,7 +43,7 @@
     color: #222;
 }
 
-.focus, .focus > .caret{
+.focus .dashboard-item, .focus .caret{
     display: block !important;
     color: #f5f5f5 !important;
 }
