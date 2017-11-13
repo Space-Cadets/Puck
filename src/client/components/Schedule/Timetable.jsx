@@ -110,11 +110,11 @@ export default class Timetable extends React.Component {
     const times = this.generateTimes(state, Object.values(state.sections));
 
 		return (
-      <div id="schedule-container" className="container column columns is-mobile">
+      <div id="schedule-container" className="container column columns">
         <div id="schedule-lines" className="is-hidden-mobile">
             {times}
         </div>
-        <div id="schedule" className="columns is-mobile">
+        <div id="schedule" className="columns">
           <div id="schedule-time" className="column is-hidden-mobile">
             {times}
           </div>

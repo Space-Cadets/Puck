@@ -44,7 +44,7 @@ export default class Meta extends React.Component {
     });
 
 		return (
-      <div id="meta" className="column container">
+      <div id="meta" className="column container is-hidden-mobile">
         <span id="meta-head">
           <span className="subtitle is-3">Schedule</span>
           <span id="meta-credits" className="subtitle is-5" >Credits: {credits}</span>

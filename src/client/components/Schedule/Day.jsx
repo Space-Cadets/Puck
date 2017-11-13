@@ -53,7 +53,10 @@ export default class Day extends React.Component {
             {c.department}:{c.class}-{c.section}
           </div>
           <div className="class-instructor">{c.instructors.join(" ")}</div>
-          { this.state.showData === c.crn ? this.getSection(c.crn, c.start, c.end) : "" }
+          { this.state.showData === c.crn ? this.getTooltip(c.crn, c.start, c.end) : "" }
+          <div className="is-hidden-desktop">
+            {this.getSection(this.getCourseInfo(c.crn), c.start, c.end)}
+          </div>
         </div>
       );
     });
@@ -101,7 +104,7 @@ export default class Day extends React.Component {
     }
   }
 
-  getSection(crn, start, end) {
+  getTooltip(crn, start, end) {
     let courseInfo = this.props.courseData.sections[crn];
     return (
       <ReactTooltip className="extraClass"
@@ -110,38 +113,48 @@ export default class Day extends React.Component {
                     place="right"
                     type="info"
                     effect="solid">
-        <div className="section">
-          <div className="section-name">
-            <Link to={`/index/${crn}`}>
-              {courseInfo.department}: {courseInfo.class} - {courseInfo.name}
-            </Link>
-          </div>
-          <a data-crn={crn} onClick={this.removeClass} className="button is-white drop">remove</a>
-          <div className="section-title">
-            Section: {courseInfo.section}
-          </div>
-          <div className="section-day">
-            Days: {courseInfo.schedule.map(s => `${s.days}
-              from ${getNormalTime(s.startTime)} to ${getNormalTime(s.endTime)}`).join(" ")}
-          </div>
-          <div className="section-instructor">Instructor:
-            {courseInfo.instructors.map(t => t ? t : "TBA").join(" ")}</div>
-          <div className="section-crn">CRN: {courseInfo.crn}</div>
-          <div className="section-enrollment">
-            Enrollment: {courseInfo.enrolled} of {courseInfo.size} enrolled.
-          </div>
-          <div>
-            Credits: {courseInfo.credits.substring(0, 3)}
-          </div>
-          <div className="section-comment">{courseInfo.comment}</div>
-          <div className="section-prereqs">
-            {courseInfo.prereqs.length ? `Prerequisites: ${courseInfo.prereqs.join(" ")}` : ""}
-          </div>
-          <div className="section-description">
-            {courseInfo.description}
-          </div>
-        </div>
+        {this.getSection(courseInfo, start, end)}
       </ReactTooltip>
+    );
+  }
+
+  getCourseInfo(crn) {
+    return this.props.courseData.sections[crn];
+  }
+
+  getSection(courseInfo, start, end) {
+    return (
+      <div className="section">
+        <div className="section-name">
+          <Link to={`/index/${courseInfo.crn}`}>
+            {courseInfo.department}: {courseInfo.class} - {courseInfo.name}
+          </Link>
+        </div>
+        <a data-crn={courseInfo.crn} onClick={this.removeClass} className="button is-white drop">remove</a>
+        <div className="section-title">
+          Section: {courseInfo.section}
+        </div>
+        <div className="section-day">
+          Days: {courseInfo.schedule.map(s => `${s.days}
+            from ${getNormalTime(s.startTime)} to ${getNormalTime(s.endTime)}`).join(" ")}
+        </div>
+        <div className="section-instructor">Instructor:
+          {courseInfo.instructors.map(t => t ? t : "TBA").join(" ")}</div>
+        <div className="section-crn">CRN: {courseInfo.crn}</div>
+        <div className="section-enrollment">
+          Enrollment: {courseInfo.enrolled} of {courseInfo.size} enrolled.
+        </div>
+        <div>
+          Credits: {courseInfo.credits.substring(0, 3)}
+        </div>
+        <div className="section-comment">{courseInfo.comment}</div>
+        <div className="section-prereqs">
+          {courseInfo.prereqs.length ? `Prerequisites: ${courseInfo.prereqs.join(" ")}` : ""}
+        </div>
+        <div className="section-description">
+          {courseInfo.description}
+        </div>
+      </div>
     );
   }
 

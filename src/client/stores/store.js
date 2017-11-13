@@ -165,6 +165,12 @@ class ScheduleManager {
     }
 }
 
+//help sort array of times
+function sortHelper(a, b){
+    // Compare the 2 dates
+    return a.start < b.start ? -1 : 1;
+}
+
 //break up classes into days, renderable
 export function parseClassData(classes) {
   let sched = {
@@ -192,27 +198,35 @@ export function parseClassData(classes) {
       switch (s.days) {
         case "M":
           sched.m.push(format(c, i));
+          sched.m.sort(sortHelper);
           break;
         case "T":
           sched.t.push(format(c, i));
+          sched.t.sort(sortHelper)
           break;
         case "W":
           sched.w.push(format(c, i));
+          sched.w.sort(sortHelper)
           break;
         case "R":
           sched.r.push(format(c, i));
+          sched.r.sort(sortHelper)
           break;
         case "F":
           sched.f.push(format(c, i));
+          sched.f.sort(sortHelper)
           break;
         case "MWF":
           [sched.m, sched.w, sched.f].forEach(d => d.push(format(c, i)));
+          [sched.m, sched.w, sched.f].forEach(d => d.sort(sortHelper))
           break;
         case "TR":
           [sched.t, sched.r].forEach(d => d.push(format(c, i)));
+          [sched.t, sched.r].forEach(d => d.sort(sortHelper));
           break;
         case "MW":
           [sched.m, sched.w].forEach(d => d.push(format(c, i)));
+          [sched.m, sched.w].forEach(d => d.sort(sortHelper));
           break;
         default:
 

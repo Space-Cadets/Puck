@@ -75,7 +75,6 @@
 
 #navbar-burger {
     width: auto;
-    height: 50px;
 }
 
 #navbar-rand {
@@ -98,6 +97,10 @@
 
 .menuitem {
     font-size: 18px;
+    color: white;
+}
+
+.navbar-item p > i {
     color: white;
 }
 

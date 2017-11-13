@@ -122,7 +122,7 @@ export default class Index extends React.Component {
       return (
         <div className="index-section">
           <div className="title is-5">
-            <a href={`/courses/${courseInfo.department}${courseInfo.class}`}>
+            <a>
               {courseInfo.department}: {courseInfo.class} - {courseInfo.name}
             </a>
           </div>
@@ -165,7 +165,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <div id="index-container">
-        <h1 className="title">Course Index</h1>
+    
         <div id="index" className="columns">
           <div className="column index-column">
             <div className="notification is-info column-head">Departments</div>

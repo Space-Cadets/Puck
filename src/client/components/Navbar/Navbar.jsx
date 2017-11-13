@@ -125,7 +125,7 @@ class Navbar extends React.Component {
         <div className="navbar-brand">
 					<a id="navbar-logo" className="icon" href="/">
 	          <img src="/static/img/mods.png" className="is-hidden-mobile"></img>
-						<img id="small-logo" src="/static/img/modsm.png" className="is-hidden-desktop"></img>
+						<img id="small-logo" src="/static/img/modsmw.png" className="is-hidden-desktop"></img>
 					</a>
 					<div id="navbar-search" className="containter">
 						<input onClick={this.showSearch} onKeyUp={this.search} placeholder="search classes / teachers"></input>
@@ -133,7 +133,7 @@ class Navbar extends React.Component {
 					</div>
 					<div className="navbar-burger" id="navbar-burger">
 						<div className="navbar-item menuitem">
-							<p className="navbar-item">menu</p>
+							<p className="navbar-item"><i className="fa fa-navicon"></i></p>
 						</div>
 					</div>
         </div>

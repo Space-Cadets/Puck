@@ -60,7 +60,26 @@
 }
 
 @media only screen and (max-width: 768px) {
+    a {
+      color: #2b4460 !important;
+    }
     .section {
-        display: none;
+        display: block;
+        max-width: none;
+        max-height: none;
+    }
+    .day-label {
+      margin-bottom: 5px !important;
+    }
+
+    .day {
+        height: auto;
+    }
+
+    .day-class {
+        position: relative;
+        margin: 15px 0px;
+        height: auto !important;
+        top: 10px !important;
     }
 }

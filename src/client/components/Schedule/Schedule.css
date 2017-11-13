@@ -11,8 +11,8 @@
 }
 
 #schedule-container {
+    margin: 150px;
     max-width: 960px;
-    height: 85vh;
     background-color: white;
     border: 1px solid #f1f3f4;
     padding: 10px;
@@ -46,7 +46,8 @@
       margin: 20px;
       margin-left: 10px;
       float: right;
-      min-width: 1000px;
+      height: 85vh;
+      min-width: 70%;
     }
 
     #schedule-lines {
