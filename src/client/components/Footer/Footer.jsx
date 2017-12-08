@@ -13,9 +13,7 @@ export default class Footer extends React.Component {
         <div className="container">
           <div className="content has-text-centered">
             <div>
-              Mods by <a href="https://github.com/ahermida">Albert Hermida</a>,
-              &nbsp;<a href="https://github.com/dsiah">David Siah</a>, and
-              &nbsp;<a href="https://github.com/kentkwu">Kent Wu</a>.
+              ACM by <a href="https://github.com/ahermida">Albert Hermida</a>
               <div>
                 The website content is not my own.
               </div>
@@ -24,6 +22,14 @@ export default class Footer extends React.Component {
               </div>
               <div><a href="mailto:ahermida@villanova.com">submit feedback</a></div>
               <div><a href="https://github.com/Space-Cadets/Puck">source code</a></div>
+              <br />
+              <br />
+              -- Acknowledgements --
+              <div>
+                <a href="https://github.com/dsiah">David Siah</a>
+                <br/>
+                <a href="https://github.com/kentkwu">Kent Wu</a>.
+              </div>
             </div>
           </div>
         </div>

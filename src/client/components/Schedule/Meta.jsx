@@ -30,20 +30,19 @@ export default class Meta extends React.Component {
 
   @action
   removeClass(e) {
-    console.log(e.target.dataset.crn);
     if (!e.target.dataset.crn)
       e.target = e.target.parentNode;
     this.props.store.removeClass(e.target.dataset.crn);
   }
 
-	render() {
+  render() {
     let credits = 0;
     this.props.store.userClasses.forEach(c => {
       if (c.credits)
         credits += parseInt(c.credits);
     });
 
-		return (
+    return (
       <div id="meta" className="column container is-hidden-mobile">
         <span id="meta-head">
           <span className="subtitle is-3">Schedule</span>

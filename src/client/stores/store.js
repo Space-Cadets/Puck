@@ -22,6 +22,7 @@ class State {
       classes: courseData.courses,
       userClasses: courses,
       index: courseData.index,
+      fake: null,
     });
   }
 
@@ -29,9 +30,33 @@ class State {
     return parseClassData(this.userClasses);
   }
 
+  recolor() {
+    this.userClasses.forEach((c, i) => {
+      //assign colors to starting index
+      c.color = this.colors[i];
+      this.colorIndex = i;
+      return c;
+    })
+  }
+
   //NOTE: crn for collison found
   hasCollision(c) {
     return this.manager.hasCollision(c);
+  }
+
+  swap(crn) {
+    this.removeClass(crn);
+    let section = this.classes[crn];
+    let courses = this.index[section.department][section.class];
+    let i = (courses.indexOf(crn) + 1) % courses.length;
+    let counter = 0;
+    while (this.hasCollision(this.classes[courses[i]])) {
+      i = (i + 1) % courses.length;
+      counter++;
+      if (counter == courses.length) //only go through courses length
+        break;
+    }
+    this.addClass(this.classes[courses[i]]);
   }
 
   addClass(course) {
@@ -53,6 +78,7 @@ class State {
     this.userClasses = this.userClasses.filter(c => c.crn != crn);
     if (localStorage)
       localStorage.crns = this.userClasses.map(c => c.crn);
+    this.recolor(); //repaint the classes in order.
   }
 }
 
@@ -121,7 +147,6 @@ class ScheduleManager {
             [sched.m, sched.w].map(d => d.push(this._format(c.crn, s.startTime, s.endTime)));
             break;
           default:
-            console.log("YO");
         }
       })
       return sched;
@@ -146,10 +171,7 @@ class ScheduleManager {
         days[d].map(cl => this.courses[d].forEach(course => {
           let start = cl.start;
           let end = cl.end;
-          console.log(start, end);
-          console.log(course.start, course.end);
           if (start <= course.end && end >= course.start) {
-            console.log("COLLISION")
             return collision = course.crn;
           }
         }));

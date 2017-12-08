@@ -3,7 +3,6 @@
 //get course index (get it if we don't have it -> return it either way)
 export default async function getCourses() {
   if (localStorage && localStorage.courses && localStorage.index) {
-    console.log(JSON.parse(localStorage.index));
     return {
       courses: JSON.parse(localStorage.courses),
       index: JSON.parse(localStorage.index),

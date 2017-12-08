@@ -8,28 +8,25 @@ import Footer from './Footer/Footer.jsx';
 import Schedule from './Schedule/Schedule.jsx';
 import Index from './Search/Index.jsx';
 
-@observer
 export default class App extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (
-			<Router>
-	      <div id="app">
-					<div id="bump"></div>
-					<Navbar store={this.props.store}/>
-					<Dashboard />
-
-					<Route exact
-								 path="/"
-								 render={()=>(<Schedule store={this.props.store}/>)} />
-				  <Route path="/index/:crn?"
-		  		 			 render={(props)=>(<Index { ...props } store={this.props.store}/>)} />
-
-					<Footer />
-	      </div>
-			</Router>
-		);
-	}
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Router>
+        <div id="app">
+          <div id="bump"></div>
+          <Navbar store={this.props.store}/>
+          <Dashboard />
+          <Route exact
+                 path="/"
+                 render={()=>(<Schedule store={this.props.store}/>)} />
+          <Route path="/index/:crn?"
+                  render={(props)=>(<Index { ...props } store={this.props.store}/>)} />
+          <Footer />
+        </div>
+      </Router>
+    );
+  }
 }

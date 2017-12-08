@@ -105,11 +105,11 @@ export default class Timetable extends React.Component {
     return timeEls;
   }
 
-	render() {
+  render() {
     const state = this.props.store.courseRenderData;
     const times = this.generateTimes(state, Object.values(state.sections));
 
-		return (
+    return (
       <div id="schedule-container" className="container column columns">
         <div id="schedule-lines" className="is-hidden-mobile">
             {times}
@@ -164,6 +164,6 @@ export default class Timetable extends React.Component {
           </div>
         </div>
       </div>
-		);
-	}
+    );
+  }
 }

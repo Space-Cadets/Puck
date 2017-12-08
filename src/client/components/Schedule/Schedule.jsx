@@ -10,8 +10,8 @@ export default class Schedule extends React.Component {
     super(props);
   }
 
-	render() {
-		return (
+  render() {
+    return (
       <div id="schedule-screen" className="columns is-mobile">
         <Meta store={this.props.store} />
         <Timetable store={this.props.store} />

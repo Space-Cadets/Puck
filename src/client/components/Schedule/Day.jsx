@@ -23,7 +23,7 @@ export default class Day extends React.Component {
     this.hideCourse = this.hideCourse.bind(this);
     this.toggleCourse = this.toggleCourse.bind(this);
     this.removeClass = this.removeClass.bind(this);
-
+    this.swap = this.swap.bind(this);
   }
 
   @computed get courseData() {
@@ -112,6 +112,7 @@ export default class Day extends React.Component {
                     delayHide={200}
                     place="right"
                     type="info"
+                    border="true"
                     effect="solid">
         {this.getSection(courseInfo, start, end)}
       </ReactTooltip>
@@ -131,6 +132,7 @@ export default class Day extends React.Component {
           </Link>
         </div>
         <a data-crn={courseInfo.crn} onClick={this.removeClass} className="button is-white drop">remove</a>
+        <a data-crn={courseInfo.crn} onClick={this.swap} className="button is-white drop">next-section</a>
         <div className="section-title">
           Section: {courseInfo.section}
         </div>
@@ -164,11 +166,18 @@ export default class Day extends React.Component {
     this.props.store.removeClass(crn);
   }
 
-	render() {
+  @action
+  swap(e) {
+    let crn = e.target.dataset.crn;
+    this.props.store.swap(crn);
+  }
+
+
+  render() {
     return (
       <div className="day">
         {this.getClasses(this.props.classes)}
       </div>
     );
-	}
+  }
 }

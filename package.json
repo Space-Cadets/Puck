@@ -41,6 +41,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "auth0-js": "^8.11.2",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
